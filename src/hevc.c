@@ -1,4 +1,4 @@
-// Last Update:2019-01-09 18:10:16
+// Last Update:2019-01-09 21:22:48
 /**
  * @file hevc.c
  * @brief 
@@ -112,7 +112,7 @@ static void hevc_update_ptl(HEVCDecoderConfigurationRecord *config,
     config->general_constraint_indicator_flags &= ptl->constraint_indicator_flags;
 }
 
-static void hevc(bs_t *bs, HEVCDecoderConfigurationRecord *config,
+static void hevc_parse_ptl(bs_t *bs, HEVCDecoderConfigurationRecord *config,
                  unsigned int max_sub_layers_minus1)
 {
     unsigned int i;
@@ -120,32 +120,32 @@ static void hevc(bs_t *bs, HEVCDecoderConfigurationRecord *config,
     uint8_t sub_layer_profile_present_flag[HEVC_MAX_SUB_LAYERS];
     uint8_t sub_layer_level_present_flag[HEVC_MAX_SUB_LAYERS];
 
-    general_ptl.profile_space               = bs_read_u( bs, 2);
-    general_ptl.tier_flag                   = bs_read_u1(bs);
-    general_ptl.profile_idc                 = bs_read_u( bs, 5);
-    general_ptl.profile_compatibility_flags = get_bits_long(gb, 32);
-    general_ptl.constraint_indicator_flags  = get_bits64(gb, 48);
-    general_ptl.level_idc                   = get_bits(gb, 8);
-    hvcc_update_ptl(hvcc, &general_ptl);
+    general_ptl.profile_space               = bs_read_u( bs, 2 );
+    general_ptl.tier_flag                   = bs_read_u1( bs );
+    general_ptl.profile_idc                 = bs_read_u( bs, 5 );
+    general_ptl.profile_compatibility_flags = bs_read_u( bs, 32 );
+    general_ptl.constraint_indicator_flags  = bs_read_u( bs, 48 );
+    general_ptl.level_idc                   = bs_read_u8( bs );
+    hvcc_update_ptl( config, &general_ptl );
 
     for (i = 0; i < max_sub_layers_minus1; i++) {
-        sub_layer_profile_present_flag[i] = get_bits1(gb);
-        sub_layer_level_present_flag[i]   = get_bits1(gb);
+        sub_layer_profile_present_flag[i] = bs_read_u1( bs );
+        sub_layer_level_present_flag[i]   = bs_read_u1( bs );
     }
 
     if (max_sub_layers_minus1 > 0)
         for (i = max_sub_layers_minus1; i < 8; i++)
-            skip_bits(gb, 2); // reserved_zero_2bits[i]
+            bs_skip_u( bs, 2 ); // reserved_zero_2bits[i]
 
     for (i = 0; i < max_sub_layers_minus1; i++) {
         if (sub_layer_profile_present_flag[i]) {
-            skip_bits_long(gb, 32);
-            skip_bits_long(gb, 32);
-            skip_bits     (gb, 24);
+            bs_skip_bytes( bs, 4 );
+            bs_skip_bytes( bs, 4 );
+            bs_skip_bytes( bs, 3);
         }
 
         if (sub_layer_level_present_flag[i])
-            skip_bits(gb, 8);
+            bs_skip_bytes( bs, 1 );
     }
 }
 
