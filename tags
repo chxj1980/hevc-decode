@@ -1,0 +1,116 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AV_INPUT_BUFFER_PADDING_SIZE	src/hevc.c	/^#define AV_INPUT_BUFFER_PADDING_SIZE /;"	d	file:
+FAST_U8	src/bs.h	/^#define FAST_U8$/;"	d
+HEVCDecoderConfigurationRecord	src/hevc.c	/^typedef struct HEVCDecoderConfigurationRecord {$/;"	s	file:
+HEVCDecoderConfigurationRecord	src/hevc.c	/^} HEVCDecoderConfigurationRecord;$/;"	t	typeref:struct:HEVCDecoderConfigurationRecord	file:
+HEVCNALUnitType	src/hevc.h	/^typedef enum HEVCNALUnitType {$/;"	g
+HEVCNALUnitType	src/hevc.h	/^} HEVCNALUnitType;$/;"	t	typeref:enum:HEVCNALUnitType
+HEVC_H	src/hevc.h	/^#define HEVC_H$/;"	d
+HEVC_NAL_AUD	src/hevc.h	/^    HEVC_NAL_AUD        = 35,$/;"	e	enum:HEVCNALUnitType
+HEVC_NAL_BLA_N_LP	src/hevc.h	/^    HEVC_NAL_BLA_N_LP   = 18,$/;"	e	enum:HEVCNALUnitType
+HEVC_NAL_BLA_W_LP	src/hevc.h	/^    HEVC_NAL_BLA_W_LP   = 16,$/;"	e	enum:HEVCNALUnitType
+HEVC_NAL_BLA_W_RADL	src/hevc.h	/^    HEVC_NAL_BLA_W_RADL = 17,$/;"	e	enum:HEVCNALUnitType
+HEVC_NAL_CRA_NUT	src/hevc.h	/^    HEVC_NAL_CRA_NUT    = 21,$/;"	e	enum:HEVCNALUnitType
+HEVC_NAL_EOB_NUT	src/hevc.h	/^    HEVC_NAL_EOB_NUT    = 37,$/;"	e	enum:HEVCNALUnitType
+HEVC_NAL_EOS_NUT	src/hevc.h	/^    HEVC_NAL_EOS_NUT    = 36,$/;"	e	enum:HEVCNALUnitType
+HEVC_NAL_FD_NUT	src/hevc.h	/^    HEVC_NAL_FD_NUT     = 38,$/;"	e	enum:HEVCNALUnitType
+HEVC_NAL_IDR_N_LP	src/hevc.h	/^    HEVC_NAL_IDR_N_LP   = 20,$/;"	e	enum:HEVCNALUnitType
+HEVC_NAL_IDR_W_RADL	src/hevc.h	/^    HEVC_NAL_IDR_W_RADL = 19,$/;"	e	enum:HEVCNALUnitType
+HEVC_NAL_PPS	src/hevc.h	/^    HEVC_NAL_PPS        = 34,$/;"	e	enum:HEVCNALUnitType
+HEVC_NAL_RADL_N	src/hevc.h	/^    HEVC_NAL_RADL_N     = 6,$/;"	e	enum:HEVCNALUnitType
+HEVC_NAL_RADL_R	src/hevc.h	/^    HEVC_NAL_RADL_R     = 7,$/;"	e	enum:HEVCNALUnitType
+HEVC_NAL_RASL_N	src/hevc.h	/^    HEVC_NAL_RASL_N     = 8,$/;"	e	enum:HEVCNALUnitType
+HEVC_NAL_RASL_R	src/hevc.h	/^    HEVC_NAL_RASL_R     = 9,$/;"	e	enum:HEVCNALUnitType
+HEVC_NAL_SEI_PREFIX	src/hevc.h	/^    HEVC_NAL_SEI_PREFIX = 39,$/;"	e	enum:HEVCNALUnitType
+HEVC_NAL_SEI_SUFFIX	src/hevc.h	/^    HEVC_NAL_SEI_SUFFIX = 40,$/;"	e	enum:HEVCNALUnitType
+HEVC_NAL_SPS	src/hevc.h	/^    HEVC_NAL_SPS        = 33,$/;"	e	enum:HEVCNALUnitType
+HEVC_NAL_STSA_N	src/hevc.h	/^    HEVC_NAL_STSA_N     = 4,$/;"	e	enum:HEVCNALUnitType
+HEVC_NAL_STSA_R	src/hevc.h	/^    HEVC_NAL_STSA_R     = 5,$/;"	e	enum:HEVCNALUnitType
+HEVC_NAL_TRAIL_N	src/hevc.h	/^    HEVC_NAL_TRAIL_N    = 0,$/;"	e	enum:HEVCNALUnitType
+HEVC_NAL_TRAIL_R	src/hevc.h	/^    HEVC_NAL_TRAIL_R    = 1,$/;"	e	enum:HEVCNALUnitType
+HEVC_NAL_TSA_N	src/hevc.h	/^    HEVC_NAL_TSA_N      = 2,$/;"	e	enum:HEVCNALUnitType
+HEVC_NAL_TSA_R	src/hevc.h	/^    HEVC_NAL_TSA_R      = 3,$/;"	e	enum:HEVCNALUnitType
+HEVC_NAL_VPS	src/hevc.h	/^    HEVC_NAL_VPS        = 32,$/;"	e	enum:HEVCNALUnitType
+HVCCNALUnitArray	src/hevc.c	/^typedef struct HVCCNALUnitArray {$/;"	s	file:
+HVCCNALUnitArray	src/hevc.c	/^} HVCCNALUnitArray;$/;"	t	typeref:struct:HVCCNALUnitArray	file:
+MAX_SPATIAL_SEGMENTATION	src/hevc.c	/^#define MAX_SPATIAL_SEGMENTATION /;"	d	file:
+NALU_MAX	src/hevc.c	/^#define NALU_MAX /;"	d	file:
+NAL_unit_type	src/hevc.c	/^    uint8_t  NAL_unit_type;$/;"	m	struct:HVCCNALUnitArray	file:
+NalUnit	src/hevc.c	/^typedef struct NalUnit {$/;"	s	file:
+NalUnit	src/hevc.c	/^} NalUnit;$/;"	t	typeref:struct:NalUnit	file:
+_H264_BS_H	src/bs.h	/^#define _H264_BS_H /;"	d
+_OPTIMIZE_BS_	src/bs.h	/^#define _OPTIMIZE_BS_ /;"	d
+addr	src/hevc.c	/^    uint8_t *addr;$/;"	m	struct:NalUnit	file:
+array	src/hevc.c	/^    HVCCNALUnitArray *array;$/;"	m	struct:HEVCDecoderConfigurationRecord	file:
+array_completeness	src/hevc.c	/^    uint8_t  array_completeness;$/;"	m	struct:HVCCNALUnitArray	file:
+avgFrameRate	src/hevc.c	/^    uint16_t avgFrameRate;$/;"	m	struct:HEVCDecoderConfigurationRecord	file:
+bitDepthChromaMinus8	src/hevc.c	/^    uint8_t  bitDepthChromaMinus8;$/;"	m	struct:HEVCDecoderConfigurationRecord	file:
+bitDepthLumaMinus8	src/hevc.c	/^    uint8_t  bitDepthLumaMinus8;$/;"	m	struct:HEVCDecoderConfigurationRecord	file:
+bits_left	src/bs.h	/^	int bits_left;$/;"	m	struct:__anon1
+bs_byte_aligned	src/bs.h	/^static inline uint32_t bs_byte_aligned(bs_t* b) $/;"	f
+bs_bytes_left	src/bs.h	/^static inline int bs_bytes_left(bs_t* b) { return (b->end - b->p); }$/;"	f
+bs_clone	src/bs.h	/^static inline bs_t* bs_clone(bs_t* dest, const bs_t* src)$/;"	f
+bs_eof	src/bs.h	/^static inline int bs_eof(bs_t* b) { if (b->p >= b->end) { return 1; } else { return 0; } }$/;"	f
+bs_free	src/bs.h	/^static inline void bs_free(bs_t* b)$/;"	f
+bs_init	src/bs.h	/^static inline bs_t* bs_init(bs_t* b, uint8_t* buf, size_t size)$/;"	f
+bs_new	src/bs.h	/^static inline bs_t* bs_new(uint8_t* buf, size_t size)$/;"	f
+bs_next_bits	src/bs.h	/^static inline uint32_t bs_next_bits(bs_t* bs, int nbits)$/;"	f
+bs_next_bytes	src/bs.h	/^static inline uint64_t bs_next_bytes(bs_t* bs, int nbytes)$/;"	f
+bs_overrun	src/bs.h	/^static inline int bs_overrun(bs_t* b) { if (b->p > b->end) { return 1; } else { return 0; } }$/;"	f
+bs_peek_u1	src/bs.h	/^static inline uint32_t bs_peek_u1(bs_t* b)$/;"	f
+bs_pos	src/bs.h	/^static inline int bs_pos(bs_t* b) { if (b->p > b->end) { return (b->end - b->start); } else { return (b->p - b->start); } }$/;"	f
+bs_print_state	src/bs.h	/^#define bs_print_state(/;"	d
+bs_read_bytes	src/bs.h	/^static inline int bs_read_bytes(bs_t* b, uint8_t* buf, int len)$/;"	f
+bs_read_f	src/bs.h	/^static inline uint32_t bs_read_f(bs_t* b, int n) { return bs_read_u(b, n); }$/;"	f
+bs_read_se	src/bs.h	/^static inline int32_t bs_read_se(bs_t* b) $/;"	f
+bs_read_u	src/bs.h	/^static inline uint32_t bs_read_u(bs_t* b, int n)$/;"	f
+bs_read_u1	src/bs.h	/^static inline uint32_t bs_read_u1(bs_t* b)$/;"	f
+bs_read_u8	src/bs.h	/^static inline uint32_t bs_read_u8(bs_t* b)$/;"	f
+bs_read_ue	src/bs.h	/^static inline uint32_t bs_read_ue(bs_t* b)$/;"	f
+bs_skip_bytes	src/bs.h	/^static inline int bs_skip_bytes(bs_t* b, int len)$/;"	f
+bs_skip_u	src/bs.h	/^static inline void bs_skip_u(bs_t* b, int n)$/;"	f
+bs_skip_u1	src/bs.h	/^static inline void bs_skip_u1(bs_t* b)$/;"	f
+bs_t	src/bs.h	/^} bs_t;$/;"	t	typeref:struct:__anon1
+bs_write_bytes	src/bs.h	/^static inline int bs_write_bytes(bs_t* b, uint8_t* buf, int len)$/;"	f
+bs_write_f	src/bs.h	/^static inline void bs_write_f(bs_t* b, int n, uint32_t v) { bs_write_u(b, n, v); }$/;"	f
+bs_write_se	src/bs.h	/^static inline void bs_write_se(bs_t* b, int32_t v)$/;"	f
+bs_write_u	src/bs.h	/^static inline void bs_write_u(bs_t* b, int n, uint32_t v)$/;"	f
+bs_write_u1	src/bs.h	/^static inline void bs_write_u1(bs_t* b, uint32_t v)$/;"	f
+bs_write_u8	src/bs.h	/^static inline void bs_write_u8(bs_t* b, uint32_t v)$/;"	f
+bs_write_ue	src/bs.h	/^static inline void bs_write_ue(bs_t* b, uint32_t v)$/;"	f
+chromaFormat	src/hevc.c	/^    uint8_t  chromaFormat;$/;"	m	struct:HEVCDecoderConfigurationRecord	file:
+configurationVersion	src/hevc.c	/^    uint8_t  configurationVersion;$/;"	m	struct:HEVCDecoderConfigurationRecord	file:
+constantFrameRate	src/hevc.c	/^    uint8_t  constantFrameRate;$/;"	m	struct:HEVCDecoderConfigurationRecord	file:
+end	src/bs.h	/^	uint8_t* end;$/;"	m	struct:__anon1
+general_constraint_indicator_flags	src/hevc.c	/^    uint64_t general_constraint_indicator_flags;$/;"	m	struct:HEVCDecoderConfigurationRecord	file:
+general_level_idc	src/hevc.c	/^    uint8_t  general_level_idc;$/;"	m	struct:HEVCDecoderConfigurationRecord	file:
+general_profile_compatibility_flags	src/hevc.c	/^    uint32_t general_profile_compatibility_flags;$/;"	m	struct:HEVCDecoderConfigurationRecord	file:
+general_profile_idc	src/hevc.c	/^    uint8_t  general_profile_idc;$/;"	m	struct:HEVCDecoderConfigurationRecord	file:
+general_profile_space	src/hevc.c	/^    uint8_t  general_profile_space;$/;"	m	struct:HEVCDecoderConfigurationRecord	file:
+general_tier_flag	src/hevc.c	/^    uint8_t  general_tier_flag;$/;"	m	struct:HEVCDecoderConfigurationRecord	file:
+hevc_find_startcode	src/hevc.c	/^const uint8_t *hevc_find_startcode( const uint8_t *p, const uint8_t *end )$/;"	f
+hevc_find_startcode_internal	src/hevc.c	/^static const uint8_t *hevc_find_startcode_internal(const uint8_t *p, const uint8_t *end)$/;"	f	file:
+hevc_get_config	src/hevc.c	/^int hevc_get_config( const uint8_t *data_in, int size, HEVCDecoderConfigurationRecord *config )$/;"	f
+hevc_parse_nalu	src/hevc.c	/^int hevc_parse_nalu( const uint8_t *data_in, int size, NalUnit *nalu_list )$/;"	f
+hevc_parse_pps	src/hevc.c	/^static int hevc_parse_pps( const uint8_t *pps, int size, HEVCDecoderConfigurationRecord *config )$/;"	f	file:
+hevc_parse_sps	src/hevc.c	/^static int hevc_parse_sps( const uint8_t *sps, int size, HEVCDecoderConfigurationRecord *config )$/;"	f	file:
+hevc_parse_vps	src/hevc.c	/^static int hevc_parse_vps( const uint8_t *vps, int size, HEVCDecoderConfigurationRecord *config )$/;"	f	file:
+lengthSizeMinusOne	src/hevc.c	/^    uint8_t  lengthSizeMinusOne;$/;"	m	struct:HEVCDecoderConfigurationRecord	file:
+min_spatial_segmentation_idc	src/hevc.c	/^    uint16_t min_spatial_segmentation_idc;$/;"	m	struct:HEVCDecoderConfigurationRecord	file:
+nalUnit	src/hevc.c	/^    uint8_t  **nalUnit;$/;"	m	struct:HVCCNALUnitArray	file:
+nalUnitLength	src/hevc.c	/^    uint16_t *nalUnitLength;$/;"	m	struct:HVCCNALUnitArray	file:
+nalu_extract_rbsp	src/hevc.c	/^static uint8_t *nalu_extract_rbsp(const uint8_t *src, uint32_t src_len,$/;"	f	file:
+nalu_type	src/hevc.c	/^    uint8_t nalu_type;$/;"	m	struct:NalUnit	file:
+numNalus	src/hevc.c	/^    uint16_t numNalus;$/;"	m	struct:HVCCNALUnitArray	file:
+numOfArrays	src/hevc.c	/^    uint8_t  numOfArrays;$/;"	m	struct:HEVCDecoderConfigurationRecord	file:
+numTemporalLayers	src/hevc.c	/^    uint8_t  numTemporalLayers;$/;"	m	struct:HEVCDecoderConfigurationRecord	file:
+p	src/bs.h	/^	uint8_t* p;$/;"	m	struct:__anon1
+parallelismType	src/hevc.c	/^    uint8_t  parallelismType;$/;"	m	struct:HEVCDecoderConfigurationRecord	file:
+size	src/hevc.c	/^    int size;$/;"	m	struct:NalUnit	file:
+start	src/bs.h	/^	uint8_t* start;$/;"	m	struct:__anon1
+temporalIdNested	src/hevc.c	/^    uint8_t  temporalIdNested;$/;"	m	struct:HEVCDecoderConfigurationRecord	file:
