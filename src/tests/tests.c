@@ -1,4 +1,4 @@
-// Last Update:2019-01-10 11:52:07
+// Last Update:2019-01-10 11:56:24
 /**
  * @file tests.c
  * @brief 
@@ -11,10 +11,12 @@
 
 #include "hevc.h"
 
-#define DUMP_MEMBER( member ) printf( #member" : %d\n", config->member )
 
 void dump_hevc_config( HEVCDecoderConfigurationRecord * config )
 {
+
+#define DUMP_MEMBER( member ) printf( #member" : %d\n", config->member )
+
     DUMP_MEMBER( configurationVersion );
     DUMP_MEMBER( general_profile_space );
     DUMP_MEMBER( general_tier_flag );
