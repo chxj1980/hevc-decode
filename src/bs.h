@@ -121,7 +121,7 @@ static inline int bs_pos(bs_t* b) { if (b->p > b->end) { return (b->end - b->sta
 
 static inline int bs_bytes_left(bs_t* b) { return (b->end - b->p); }
 
-static inline int bs_bits_left( bs_t *b) { return ((b->end - b->p )*8 + b->bits_left) };
+static inline int bs_bits_left( bs_t *b) { return ((b->end - b->p )*8 + b->bits_left); };
 
 static inline uint32_t bs_read_u1(bs_t* b)
 {

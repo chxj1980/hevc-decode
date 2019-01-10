@@ -1,4 +1,4 @@
-// Last Update:2019-01-09 11:08:23
+// Last Update:2019-01-10 11:40:18
 /**
  * @file hevc.h
  * @brief 
@@ -9,6 +9,8 @@
 
 #ifndef HEVC_H
 #define HEVC_H
+
+#include <stdint.h>
 
 typedef enum HEVCNALUnitType {
     HEVC_NAL_TRAIL_N    = 0,
@@ -37,6 +39,12 @@ typedef enum HEVCNALUnitType {
     HEVC_NAL_SEI_PREFIX = 39,
     HEVC_NAL_SEI_SUFFIX = 40,
 } HEVCNALUnitType;
+
+typedef struct NalUnit {
+    uint8_t nalu_type;
+    const uint8_t *addr;
+    int size;
+} NalUnit;
 
 
 #endif  /*HEVC_H*/

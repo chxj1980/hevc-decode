@@ -1,4 +1,4 @@
-// Last Update:2019-01-10 10:56:51
+// Last Update:2019-01-10 11:41:32
 /**
  * @file hevc.c
  * @brief 
@@ -10,6 +10,7 @@
 #include <stdint.h>
 #include <string.h>
 #include "bs.h"
+#include "hevc.h"
 
 #define MAX_SPATIAL_SEGMENTATION 4096 // max. value of u(12) field
 #define AV_INPUT_BUFFER_PADDING_SIZE 32
@@ -19,12 +20,6 @@
 
 #define MAX(a,b) ((a) > (b) ? (a) : (b))
 #define MIN(a,b) ((a) > (b) ? (b) : (a))
-
-typedef struct NalUnit {
-    uint8_t nalu_type;
-    uint8_t *addr;
-    int size;
-} NalUnit;
 
 typedef struct HVCCNALUnitArray {
     uint8_t  array_completeness;
@@ -55,6 +50,16 @@ typedef struct HEVCDecoderConfigurationRecord {
     uint8_t  numOfArrays;
     HVCCNALUnitArray *array;
 } HEVCDecoderConfigurationRecord;
+
+typedef struct HVCCProfileTierLevel {
+    uint8_t  profile_space;
+    uint8_t  tier_flag;
+    uint8_t  profile_idc;
+    uint32_t profile_compatibility_flags;
+    uint64_t constraint_indicator_flags;
+    uint8_t  level_idc;
+} HVCCProfileTierLevel;
+
 
 static const uint8_t *hevc_find_startcode_internal(const uint8_t *p, const uint8_t *end)
 {
@@ -151,7 +156,7 @@ static void hevc_parse_ptl(bs_t *bs, HEVCDecoderConfigurationRecord *config,
     }
 }
 
-static int hevc_parse_vps( bs_t *bs, int size, HEVCDecoderConfigurationRecord *config )
+static int hevc_parse_vps( bs_t *bs, HEVCDecoderConfigurationRecord *config )
 {
     unsigned int vps_max_sub_layers_minus1;
 
@@ -162,15 +167,6 @@ static int hevc_parse_vps( bs_t *bs, int size, HEVCDecoderConfigurationRecord *c
     hevc_parse_ptl( bs, config, vps_max_sub_layers_minus1 );
 
     return 0;
-err:
-    return -1;
-}
-
-static int hevc_parse_pps( bs_t *bs, int size, HEVCDecoderConfigurationRecord *config )
-{
-    return 0;
-err:
-    return -1;
 }
 
 static void skip_scaling_list_data( bs_t *bs )
@@ -208,7 +204,7 @@ static int parse_rps(bs_t *bs, unsigned int rps_idx,
     if (rps_idx && bs_read_u1(bs)) { // inter_ref_pic_set_prediction_flag
         /* this should only happen for slice headers, and this isn't one */
         if (rps_idx >= num_rps)
-            return AVERROR_INVALIDDATA;
+            return -1;
 
         bs_skip_u1        (bs); // delta_rps_sign
         bs_read_ue(bs); // abs_delta_rps_minus1
@@ -335,7 +331,7 @@ static int skip_hrd_parameters(bs_t *bs, uint8_t cprms_present_flag,
     return 0;
 }
 
-static void hevc_parse_vui( bs,
+static void hevc_parse_vui( bs_t *bs,
                            HEVCDecoderConfigurationRecord *config,
                            unsigned int max_sub_layers_minus1)
 {
@@ -381,7 +377,7 @@ static void hevc_parse_vui( bs,
 
         min_spatial_segmentation_idc = bs_read_ue(bs);
 
-        config->min_spatial_segmentation_idc = MIN(hevc->min_spatial_segmentation_idc,
+        config->min_spatial_segmentation_idc = MIN(config->min_spatial_segmentation_idc,
                                                    min_spatial_segmentation_idc);
 
         bs_read_ue(bs); // max_bytes_per_pic_denom
@@ -398,8 +394,8 @@ static int hevc_parse_sps( bs_t *bs, HEVCDecoderConfigurationRecord *config )
 
     bs_skip_u( bs, 4 ); // sps_video_parameter_set_id
 
-    sps_max_sub_layers_minus1 = bs_skip_u ( bs, 3 );
-    config->numTemporalLayers = MAX(hevc->numTemporalLayers,
+    sps_max_sub_layers_minus1 = bs_read_u ( bs, 3 );
+    config->numTemporalLayers = MAX(config->numTemporalLayers,
                                     sps_max_sub_layers_minus1 + 1);
 
     config->temporalIdNested = bs_read_u1( bs );
@@ -456,7 +452,7 @@ static int hevc_parse_sps( bs_t *bs, HEVCDecoderConfigurationRecord *config )
 
     num_short_term_ref_pic_sets = bs_read_ue(bs);
     if (num_short_term_ref_pic_sets > HEVC_MAX_SHORT_TERM_RPS_COUNT)
-        return AVERROR_INVALIDDATA;
+        return -1;
 
     for (i = 0; i < num_short_term_ref_pic_sets; i++) {
         int ret = parse_rps(bs, i, num_short_term_ref_pic_sets, num_delta_pocs);
@@ -464,7 +460,7 @@ static int hevc_parse_sps( bs_t *bs, HEVCDecoderConfigurationRecord *config )
             return ret;
     }
 
-    if (bs_skip_u1(bs)) {                               // long_term_ref_pics_present_flag
+    if (bs_read_u1(bs)) {                               // long_term_ref_pics_present_flag
         unsigned num_long_term_ref_pics_sps = bs_read_ue(bs);
         if (num_long_term_ref_pics_sps > 31U)
             return -1;
