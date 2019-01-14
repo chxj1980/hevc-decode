@@ -1,4 +1,4 @@
-// Last Update:2019-01-10 11:56:24
+// Last Update:2019-01-10 13:27:20
 /**
  * @file tests.c
  * @brief 
@@ -11,6 +11,10 @@
 
 #include "hevc.h"
 
+static char gbuffer[ MAX_BUF_LEN ];
+
+#define HEVC_RAW_FILE "../src/tests/media/surfing.265"
+#define BUFFER_SIZE (10*1024*1024)
 
 void dump_hevc_config( HEVCDecoderConfigurationRecord * config )
 {
@@ -38,11 +42,33 @@ void dump_hevc_config( HEVCDecoderConfigurationRecord * config )
     DUMP_MEMBER( numOfArrays );
 }
 
+char *test_hevc_parse_config()
+{
+    FILE *fp = fopen( HEVC_RAW_FILE, "r" );
+
+    ASSERT_NOT_EQUAL( fp, NULL );
+    return NULL;
+}
+
+static char *all_tests()
+{
+    RUN_TEST_CASE( test_hevc_parse_config );
+
+    return NULL;
+}
+
 int main()
 {
     HEVCDecoderConfigurationRecord config;
+    char *res = AllTests();
 
     dump_hevc_config( &config );
+
+    if ( res ) {
+        printf("%s\n", res );
+    } else {
+        printf("[ AdtsDecodeTest ] test pass\n");
+    }
     return 0;
 }
 

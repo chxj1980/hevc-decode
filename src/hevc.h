@@ -1,4 +1,4 @@
-// Last Update:2019-01-10 11:45:38
+// Last Update:2019-01-10 12:02:35
 /**
  * @file hevc.h
  * @brief 
@@ -75,6 +75,9 @@ typedef struct NalUnit {
     const uint8_t *addr;
     int size;
 } NalUnit;
+
+extern int hevc_get_config( const uint8_t *data_in, int size, HEVCDecoderConfigurationRecord *config );
+extern int hevc_parse_nalu( const uint8_t *data_in, int size, NalUnit *nalu_list );
 
 
 #endif  /*HEVC_H*/
